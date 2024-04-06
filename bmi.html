@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="keywords">
+    <meta name="description" content="opis strony">
+    <meta name="author" content="Franciszek Lewandowski">
+    <meta name="robots" content="all">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="logo.jpg">
+    <link rel="alternate" media="media" href="stronamobilna">
+    <link rel="prev" href="link do poprzedniej strony">
+    <link rel="next" href="link do nastepnej strony">
+    <link rel="help" href="link do pomocy">
+    <link rel="serach" href="link do wyszukiwarki">
+    <link rel="license" href="link do licencji">
+    <link rel="privacy-policy" href="link do polityki prywatnosci">
+    <link rel="terms-of-service" href="link do Warunkow Swiadczenia Uslug">
+    <link rel="alternate" title="Tytuł kanału" href="adres kanału" type="application/rss+xml">
+    <link rel="alternate" title="Tytuł kanału" href="adres kanału" type="application/atom+xml">
+    <title>Kalkulator BMI</title>
+    <script>
+        // Funkcja, która będzie wywoływana po naciśnięciu przycisku wyszukiwania
+        function redirectTo404() {
+            var searchQuery = document.getElementById("searchInput").value; // Pobranie wartości wpisanej w polu wyszukiwania
+            // Sprawdzenie, czy wartość wpisana w polu wyszukiwania nie jest pusta
+            if (searchQuery.trim() === "") {
+                alert("Proszę wprowadzić frazę do wyszukania!");
+            } else {
+                // Przekierowanie do strony 404
+                window.location.href = "/404.html"; // Zmień ścieżkę do swojego pliku 404.html
+            }
+        }
+    </script>
+	<script type="text/javascript">
+        function computeBMI() {
+            // Pobranie danych od użytkownika
+            var height = Number(document.getElementById("height").value);
+            var heightunits = document.getElementById("heightunits").value;
+            var weight = Number(document.getElementById("weight").value);
+            var weightunits = document.getElementById("weightunits").value;
+
+            // Konwersja jednostek na metry i kilogramy
+            if (heightunits == "inches") height /= 39.3700787;
+            if (weightunits == "lb") weight /= 2.20462;
+
+            // Obliczenie BMI
+            var BMI = weight / Math.pow(height, 2);
+
+            // Wyświetlenie wyniku obliczeń
+            document.getElementById("output").innerText = Math.round(BMI * 100) / 100;
+
+            // Określenie kategorii BMI
+            if (BMI < 18.5)
+                document.getElementById("comment").innerText = "Niedowaga";
+            else if (BMI >= 18.5 && BMI <= 25)
+                document.getElementById("comment").innerText = "Waga prawidłowa";
+            else if (BMI > 25 && BMI <= 30)
+                document.getElementById("comment").innerText = "Nadwaga";
+            else
+                document.getElementById("comment").innerText = "Otyłość";
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <button><a href="login.html">Login</a></button>
+        <form action="/search" method="get">
+            <input type="text" name="q" placeholder="Szukaj w naszym sklepie">
+            <button type="submit">Szukaj</button>
+        </form>
+        <nav>
+            <ul>
+                <li><a href="index.html">Strona Główna</a></li>
+                <li><a href="products.html">Produkty</a></li>
+                <li><a href="cart.html">Koszyk</a></li>
+                <li><a href="bmi.html">Kalkulator BMI</a></li>
+            </ul>
+        </nav>
+    </header>
+	<hr>
+	<main>
+		<h1>Kalkulator wskaźnika masy ciała (BMI)</h1>
+    <p>Podaj swój wzrost: <input type="text" id="height" /> <select id="heightunits"> <option value="metres" selected="selected">metry</option> <option value="inches">cale</option> </select> </p>
+    <p>Podaj swoją wagę: <input type="text" id="weight" /> <select id="weightunits"> <option value="kg" selected="selected">kilogramy</option> <option value="lb">funty</option> </select> </p>
+    <input type="button" value="Oblicz BMI" onclick="computeBMI();" />
+    <h2>Twoje BMI wynosi: <span id="output">?</span></h2>
+    <h3>To oznacza, że masz: <span id="comment">?</span></h3>
+	</main>
+	<hr>
+	<footer>
+		<p>&#x24D2; 2024</p>
+		<p>Wszelkie prawa zastrzeżone</p>
+	</footer>
+</body>
+</html>

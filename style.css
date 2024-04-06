@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Stylowanie całego dokumentu */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f4f4f4;
+}
+
+/* Stylowanie nagłówka */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+header a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Stylowanie formularza wyszukiwania */
+form {
+  margin-top: 1rem;
+}
+
+input[type="text"] {
+  padding: 0.5rem;
+  width: 240px;
+}
+
+button[type="submit"] {
+  padding: 0.5rem;
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #4cae4c;
+}
+
+/* Stylowanie nawigacji */
+nav ul {
+  list-style: none;
+  background-color: #444;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Stylowanie głównego kontentu */
+main {
+  padding: 2rem;
+  background-color: white;
+  margin: 2rem auto;
+  width: 80%;
+}
+
+/* Stylowanie stopki */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+footer p {
+  margin: 0.5rem 0;
+}

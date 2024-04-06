@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="keywords">
+    <meta name="description" content="opis strony">
+    <meta name="author" content="Franciszek Lewandowski">
+    <meta name="robots" content="all">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="logo.jpg">
+    <link rel="alternate" media="media" href="stronamobilna">
+    <link rel="prev" href="link do poprzedniej strony">
+    <link rel="next" href="link do nastepnej strony">
+    <link rel="help" href="link do pomocy">
+    <link rel="serach" href="link do wyszukiwarki">
+    <link rel="license" href="link do licencji">
+    <link rel="privacy-policy" href="link do polityki prywatnosci">
+    <link rel="terms-of-service" href="link do Warunkow Swiadczenia Uslug">
+    <link rel="alternate" title="Tytuł kanału" href="adres kanału" type="application/rss+xml">
+    <link rel="alternate" title="Tytuł kanału" href="adres kanału" type="application/atom+xml">
+    <title>404 Strona nie została znaleziona.</title>
+    <script>
+        // Funkcja, która będzie wywoływana po naciśnięciu przycisku wyszukiwania
+        function redirectTo404() {
+            var searchQuery = document.getElementById("searchInput").value; // Pobranie wartości wpisanej w polu wyszukiwania
+            // Sprawdzenie, czy wartość wpisana w polu wyszukiwania nie jest pusta
+            if (searchQuery.trim() === "") {
+                alert("Proszę wprowadzić frazę do wyszukania!");
+            } else {
+                // Przekierowanie do strony 404
+                window.location.href = "/404.html"; // Zmień ścieżkę do swojego pliku 404.html
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <button><a href="login.html">Login</a></button>
+        <form action="/search" method="get">
+            <input type="text" name="q" placeholder="Szukaj w naszym sklepie">
+            <button type="submit">Szukaj</button>
+        </form>
+        <nav>
+            <ul>
+                <li><a href="index.html">Strona Główna</a></li>
+                <li><a href="products.html">Produkty</a></li>
+                <li><a href="cart.html">Koszyk</a></li>
+                <li><a href="bmi.html">Kalkulator BMI</a></li>
+            </ul> 
+        </nav>
+    </header>
+	<hr>
+	<main>
+		<h1>404 Strona nie została znaleziona.</h1>
+        <img src="404.jpg">
+        <a href="index.html">Powrót do strony głównej</a>
+	</main>
+	<hr>
+	<footer>
+		<p>&#x24D2; 2024</p>
+		<p>Wszelkie prawa zastrzeżone</p>
+	</footer>
+</body>
+</html>
