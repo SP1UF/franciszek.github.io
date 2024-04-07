@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="keywords">
-    <meta name="description" content="opis strony">
+    <meta name="keywords" content="everythinet, store, online store, bmi calculator, kalkulator bmi, strona do wszystkiego,">
+    <meta name="description" content="Everythinet to strona która docelowo będzie stroną do wszystkiego, w tej chwili pozostaje w budowie.">
     <meta name="author" content="Franciszek Lewandowski">
     <meta name="robots" content="all">
     <link rel="stylesheet" href="style.css">
@@ -19,7 +19,7 @@
     <link rel="terms-of-service" href="link do Warunkow Swiadczenia Uslug">
     <link rel="alternate" title="Tytuł kanału" href="adres kanału" type="application/rss+xml">
     <link rel="alternate" title="Tytuł kanału" href="adres kanału" type="application/atom+xml">
-    <title>404 Strona nie została znaleziona.</title>
+    <title>Zaloguj się</title>
     <script>
         // Funkcja, która będzie wywoływana po naciśnięciu przycisku wyszukiwania
         function redirectTo404() {
@@ -32,7 +32,17 @@
                 window.location.href = "/404.html"; // Zmień ścieżkę do swojego pliku 404.html
             }
         }
-    </script>  
+    </script>
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            // Tutaj dodaj kod do sprawdzenia poprawności danych logowania
+            console.log("Zalogowano: " + username);
+            // Przekieruj użytkownika do odpowiedniej strony po zalogowaniu
+        })
+    </script>
 </head>
 <body>
     <header>
@@ -52,9 +62,18 @@
     </header>
 	<hr>
 	<main>
-		<h1>404 Strona nie została znaleziona.</h1>
-        <img src="404.jpg">
-        <a href="index.html">Powrót do strony głównej</a>
+		<h1>Zaloguj się</h1>
+        <form id="loginForm">
+            <label for="username">Nazwa użytkownika:</label>
+            <input type="text" id="username" name="username" required>
+    
+            <label for="password">Hasło:</label>
+            <input type="password" id="password" name="password" required>
+    
+            <input type="submit" value="Zaloguj">
+        </form><br>
+        <p>Zapomniałeś hasła?<a href="resetowaniehasla.html">Zresetuj hasło</a></p><br>
+        <p>Nie masz konta?<a href="register.html">Zarejestruj się</a></p>
 	</main>
 	<hr>
 	<footer>

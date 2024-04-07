@@ -19,7 +19,7 @@
     <link rel="terms-of-service" href="link do Warunkow Swiadczenia Uslug">
     <link rel="alternate" title="Tytuł kanału" href="adres kanału" type="application/rss+xml">
     <link rel="alternate" title="Tytuł kanału" href="adres kanału" type="application/atom+xml">
-    <title>404 Strona nie została znaleziona.</title>
+    <title>Kalkulator BMI</title>
     <script>
         // Funkcja, która będzie wywoływana po naciśnięciu przycisku wyszukiwania
         function redirectTo404() {
@@ -32,7 +32,36 @@
                 window.location.href = "/404.html"; // Zmień ścieżkę do swojego pliku 404.html
             }
         }
-    </script>  
+    </script>
+	<script type="text/javascript">
+        function computeBMI() {
+            // Pobranie danych od użytkownika
+            var height = Number(document.getElementById("height").value);
+            var heightunits = document.getElementById("heightunits").value;
+            var weight = Number(document.getElementById("weight").value);
+            var weightunits = document.getElementById("weightunits").value;
+
+            // Konwersja jednostek na metry i kilogramy
+            if (heightunits == "inches") height /= 39.3700787;
+            if (weightunits == "lb") weight /= 2.20462;
+
+            // Obliczenie BMI
+            var BMI = weight / Math.pow(height, 2);
+
+            // Wyświetlenie wyniku obliczeń
+            document.getElementById("output").innerText = Math.round(BMI * 100) / 100;
+
+            // Określenie kategorii BMI
+            if (BMI < 18.5)
+                document.getElementById("comment").innerText = "Niedowagę";
+            else if (BMI >= 18.5 && BMI <= 25)
+                document.getElementById("comment").innerText = "Wagę prawidłową";
+            else if (BMI > 25 && BMI <= 30)
+                document.getElementById("comment").innerText = "Nadwagę";
+            else
+                document.getElementById("comment").innerText = "Otyłość";
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -52,9 +81,12 @@
     </header>
 	<hr>
 	<main>
-		<h1>404 Strona nie została znaleziona.</h1>
-        <img src="404.jpg">
-        <a href="index.html">Powrót do strony głównej</a>
+		<h1>Kalkulator wskaźnika masy ciała (BMI)</h1>
+    <p>Podaj swój wzrost: <input type="text" id="height" /> <select id="heightunits"> <option value="metres" selected="selected">metry</option> <option value="inches">cale</option> </select> </p><br>
+    <p>Podaj swoją wagę: <input type="text" id="weight" /> <select id="weightunits"> <option value="kg" selected="selected">kilogramy</option> <option value="lb">funty</option> </select> </p><br>
+    <input type="button" value="Oblicz BMI" onclick="computeBMI();" />
+    <h2>Twoje BMI wynosi: <span id="output">?</span></h2>
+    <h3>To oznacza, że masz: <span id="comment">?</span></h3>
 	</main>
 	<hr>
 	<footer>

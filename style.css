@@ -4,15 +4,21 @@
   box-sizing: border-box;
 }
 
-/* Stylowanie całego dokumentu */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   color: #333;
   background-color: #f4f4f4;
+  border-radius: 15px;
+}
+main input[type="submit"] {
+  border-radius: 15px;
+  background-color:#5cb85c;
+}
+main input :hover {
+  background-color:#4cae4c;
 }
 
-/* Stylowanie nagłówka */
 header {
   background-color: #333;
   color: #fff;
@@ -25,7 +31,6 @@ header a {
   text-decoration: none;
 }
 
-/* Stylowanie formularza wyszukiwania */
 form {
   margin-top: 1rem;
 }
@@ -33,6 +38,12 @@ form {
 input[type="text"] {
   padding: 0.5rem;
   width: 240px;
+  border-radius: 15px;
+}
+
+form, input, button {
+  height: 30px;
+  margin-bottom: -25px;
 }
 
 button[type="submit"] {
@@ -41,14 +52,28 @@ button[type="submit"] {
   color: white;
   border: none;
   cursor: pointer;
+  border-radius: 15px;
 }
 
 button[type="submit"]:hover {
   background-color: #4cae4c;
 }
 
-/* Stylowanie nawigacji */
-nav ul {
+nav h1 {
+  margin: 0;
+  margin-left: 60px;
+  margin-bottom: 10px;
+  font-size: 25px;
+  font-family: Verdana;
+  text-align: left;
+  color:#4cae4c;
+}
+
+nav h1 :hover {
+  color:#5cb85c;
+}
+
+nav ul :hover {
   list-style: none;
   background-color: #444;
   text-align: center;
@@ -58,14 +83,32 @@ nav ul {
 nav ul li {
   display: inline;
   margin-right: 20px;
+  border-radius: 15px;
 }
 
 nav ul li a {
   color: white;
   text-decoration: none;
+  border-radius: 15px;
 }
 
-/* Stylowanie głównego kontentu */
+.login-icon, .cart-icon {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+}
+
+.login-icon {
+  background-image: url('obrazy/login-icon.png');
+  vertical-align: middle;
+}
+
+.cart-icon {
+  background-image: url('obrazy/cart-icon.png');
+  vertical-align: middle;
+}
+
 main {
   padding: 2rem;
   background-color: white;
@@ -73,7 +116,6 @@ main {
   width: 80%;
 }
 
-/* Stylowanie stopki */
 footer {
   background-color: #333;
   color: white;
