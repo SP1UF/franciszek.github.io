@@ -100,12 +100,12 @@ nav ul li a {
 }
 
 .login-icon {
-  background-image: url('obrazy/login-icon.png');
+  background-image: url('login-icon.png');
   vertical-align: middle;
 }
 
 .cart-icon {
-  background-image: url('obrazy/cart-icon.png');
+  background-image: url('cart-icon.png');
   vertical-align: middle;
 }
 
