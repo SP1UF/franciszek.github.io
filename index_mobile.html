@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="everythinet, store, online store, bmi calculator, kalkulator bmi, strona do wszystkiego,">
+    <meta name="description" content="Everythinet to strona która docelowo będzie stroną do wszystkiego, w tej chwili pozostaje w budowie.">
+    <meta name="author" content="Franciszek Lewandowski">
+    <meta name="robots" content="all">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="logo.jpg">
+    <link rel="prev" href="link do poprzedniej strony">
+    <link rel="next" href="link do nastepnej strony">
+    <link rel="help" href="link do pomocy">
+    <link rel="search" href="link do wyszukiwarki">
+    <link rel="license" href="link do licencji">
+    <link rel="privacy-policy" href="link do polityki prywatnosci">
+    <link rel="terms-of-service" href="link do Warunkow Swiadczenia Uslug">
+    <link rel="alternate" title="Tytuł kanału" href="adres kanału" type="application/rss+xml">
+    <link rel="alternate" title="Tytuł kanału" href="adres kanału" type="application/atom+xml">
+    <title>Everythinet</title>
+    <script>
+        // Funkcja, która będzie wywoływana po naciśnięciu przycisku wyszukiwania
+        function redirectTo404() {
+            var searchQuery = document.getElementById("searchInput").value; // Pobranie wartości wpisanej w polu wyszukiwania
+            // Sprawdzenie, czy wartość wpisana w polu wyszukiwania nie jest pusta
+            if (searchQuery.trim() === "") {
+                alert("Proszę wprowadzić frazę do wyszukania!");
+                return false; // Zatrzymujemy wysyłanie formularza
+            } else {
+                return true; // Kontynuujemy wysyłanie formularza
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <form action="/search" method="get" onsubmit="return redirectTo404()">
+            <input type="text" id="searchInput" name="q" placeholder="Szukaj w naszym sklepie">
+            <button type="submit">Szukaj</button>
+        </form>
+        <nav>
+            <h1><a href="index.html">Everythinet</a></h1>
+            <ul>
+                <li><a href="sklep.html">Sklep</a></li>
+                <li><a href="bmikalkulator.html">Kalkulator BMI</a></li>
+                <li><a href="cart.html" class="cart-icon" title="Koszyk"></a></li>
+                <li><a href="login.html" class="login-icon" title="Zaloguj się"></a></li>
+            </ul>
+        </nav>
+    </header>
+	<hr>
+	<main>
+		<h1>Strona Główna</h1>
+        cos
+	</main>
+	<hr>
+	<footer>
+		<p>&#x24D2; 2024</p>
+		<p>Wszelkie prawa zastrzeżone</p>
+	</footer>
+</body>
+</html>
