@@ -1,1 +1,96 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="keywords">
+    <meta name="description" content="opis strony">
+    <meta name="author" content="Franciszek Lewandowski">
+    <meta name="robots" content="all">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="logo.jpg">
+    <link rel="alternate" media="media" href="stronamobilna">
+    <link rel="prev" href="link do poprzedniej strony">
+    <link rel="next" href="link do nastepnej strony">
+    <link rel="help" href="link do pomocy">
+    <link rel="serach" href="link do wyszukiwarki">
+    <link rel="license" href="link do licencji">
+    <link rel="privacy-policy" href="link do polityki prywatnosci">
+    <link rel="terms-of-service" href="link do Warunkow Swiadczenia Uslug">
+    <link rel="alternate" title="Tytuł kanału" href="adres kanału" type="application/rss+xml">
+    <link rel="alternate" title="Tytuł kanału" href="adres kanału" type="application/atom+xml">
+    <title>Kalkulator Ceny Brutto/Netto</title>
+    <script>
+        // Funkcja, która będzie wywoływana po naciśnięciu przycisku wyszukiwania
+        function redirectTo404() {
+            var searchQuery = document.getElementById("searchInput").value; // Pobranie wartości wpisanej w polu wyszukiwania
+            // Sprawdzenie, czy wartość wpisana w polu wyszukiwania nie jest pusta
+            if (searchQuery.trim() === "") {
+                alert("Proszę wprowadzić frazę do wyszukania!");
+            } else {
+                // Przekierowanie do strony 404
+                window.location.href = "/404.html"; // Zmień ścieżkę do swojego pliku 404.html
+            }
+        }
+        
+        function nettoToBrutto(netto, vat) {
+            return netto * (1 + vat / 100);
+        }
 
+        function bruttoToNetto(brutto, vat) {
+            return brutto / (1 + vat / 100);
+        }
+
+        function calculate() {
+            var value = parseFloat(document.getElementById("value").value);
+            var vat = parseFloat(document.getElementById("vat").value);
+            var option = document.querySelector('input[name="conversionType"]:checked').value;
+            var result;
+
+            if (option === "nettoToBrutto") {
+                result = nettoToBrutto(value, vat);
+                document.getElementById("result").innerText = "Cena brutto: " + result.toFixed(2) + " PLN";
+            } else {
+                result = bruttoToNetto(value, vat);
+                document.getElementById("result").innerText = "Cena netto: " + result.toFixed(2) + " PLN";
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <form action="/search" method="get" onsubmit="return redirectTo404()">
+            <input type="text" id="searchInput" name="q" placeholder="Szukaj w naszym sklepie">
+            <button type="submit">Szukaj</button>
+        </form>
+        <nav>
+            <h1><a href="index.html">Everythinet</a></h1>
+            <ul>
+                <li><a href="sklep.html">Sklep</a></li>
+                <li><a href="ceny.html">Kalkulator Ceny</a></li>
+                <li><a href="cart.html" class="cart-icon" title="Koszyk"></a></li>
+                <li><a href="login.html" class="login-icon" title="Zaloguj się"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <hr>
+    <main>
+        <h1>Kalkulator ceny netto/brutto</h1>
+        <p>Podaj wartość: <input type="text" id="value" /></p>
+        <p>Podaj stawkę VAT w procentach: <input type="text" id="vat" /></p>
+        <p>
+            <input type="radio" id="nettoToBrutto" name="conversionType" value="nettoToBrutto" checked>
+            <label for="nettoToBrutto">Netto na Brutto</label><br>
+            <input type="radio" id="bruttoToNetto" name="conversionType" value="bruttoToNetto">
+            <label for="bruttoToNetto">Brutto na Netto</label>
+        </p>
+        <input type="button" value="Przelicz" onclick="calculate();" />
+        <h2>Wynik: <span id="result">?</span></h2>
+    </main>
+    <hr>
+    <footer>
+        <p>&#x24D2; 2024</p>
+        <p>Wszelkie prawa zastrzeżone</p>
+    </footer>
+</body>
+</html>
